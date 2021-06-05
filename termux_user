@@ -1,0 +1,17 @@
+#!/system/bin/sh
+#
+# This doesn't work.  I don't know why.  It gives you a shell as the right
+# user, but doesn't seem to do any of the magic in adb_like_termux.sh .
+
+#su `stat -c %u /data/data/com.termux` -c /data/data/com.termux/files/home/adb_like_termux.sh
+
+# Cheap out and just tell the user to do it.  At least let them copy/paste the
+# command.
+echo "android group membership is weird, so you'll be missing groups."
+echo "No work-around is known.  Expect at least these to break:"
+echo "  - networking"
+echo "  - screen"
+echo
+echo "For a normal(ish) termux shell, do this:"
+echo "/data/data/com.termux/files/home/bin/termux_shell"
+su `stat -c %u /data/data/com.termux`

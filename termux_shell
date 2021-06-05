@@ -1,0 +1,17 @@
+#!/system/bin/sh
+#
+# Before this, run:  /sdcard/termux_user
+#
+# That will get you the right user.  This script will get a normalish shell.
+
+SHELL='/data/data/com.termux/files/usr/bin/bash'
+HOME='/data/data/com.termux/files/home'
+cd "${HOME}"
+
+HOME="${HOME}" \
+PREFIX='/data/data/com.termux/files/usr' \
+LD_LIBRARY_PATH='/data/data/com.termux/files/usr/lib' \
+PATH="/data/data/com.termux/files/usr/bin:/data/data/com.termux/files/usr/bin/applets:$PATH" \
+LANG='en_US.UTF-8' \
+SHELL="${SHELL}" \
+exec "${SHELL}" -l
